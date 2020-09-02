@@ -1,10 +1,10 @@
 {% extends 'authapp/base.html' %}
 
 {% block container  %}
-<form>
+<form class="login-form" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Войти">
-    <a href="#">Зарегистрироваться</a>
+    <input class="login-input" type="submit" value="Войти">
+    <a class="login-reg" href="#">Зарегистрироваться</a>
 </form>
 {% endblock %}
