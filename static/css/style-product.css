@@ -5,18 +5,29 @@ body {
     font-family: "Impact";
 }
 .h3-menu {
+    color: #a1abb5;
     margin: 0;
 }
-.menu-header {
-    
+.header-block {
+    height: 50px;
 }
-.header-product-1 {
-    
+.login-header {
+    position: absolute;
+    top: 10px;
+    left: 85%;
+}
+.login {
+    font-size:20px;
+}
+.h3-login {
+    color:#a1abb5;
+    font-size: 23px;
+    margin: 0;
 }
 .search-img {
     position: absolute;
     padding-left: 10px;
-    padding-top: 2px;
+    padding-top: 4px;
 }
 .menu {
     position: absolute;
@@ -35,8 +46,12 @@ body {
     width: 155px;
     padding-left: 20px;
     padding-top: 15px;
+    margin: 0;
 }
-.header-product {
+.h3-foot {
+    color:#a1abb5;
+}
+.header {
     background-color: #393939;
     height: 50px;
     box-shadow: 0 0 5px 2px;

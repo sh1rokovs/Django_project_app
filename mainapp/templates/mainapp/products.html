@@ -2,19 +2,10 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/style-products.css' %}">
+<link rel="stylesheet" href="{% static 'css/style-product.css' %}">
 {% endblock %}
 {% block container %}
-<div class="list-product">
-    <div class="header-product">
-        <div class="header-product-1">
-            <div class="search">
-                <input type="text" class="input-product">
-                <a href="#" class="search-img"><img src="img/search.png" alt="img"></a>
-            </div>
-            {% include 'mainapp/includes/include_menu.html' %}
-        </div>
-    </div>
+{% include 'mainapp/includes/include_menu.html' %}
     <div class="products">
     {% for category in categories %}
         <a href="#" class="header_bottom_link"><li class="header_bottom_text">{{ category.name }}</li></a>
