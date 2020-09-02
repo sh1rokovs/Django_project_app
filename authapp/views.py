@@ -29,5 +29,31 @@ def logout(request):
     return HttpResponseRedirect(reverse('main:index'))
 
 
-def register(request):
-    pass
+def user_register(request):
+    if request.method == 'POST':
+        user = ShopUserRegisterForm(request.POST, request.FILES)
+        if user.is_valid():
+            user.save()
+            return HttpResponseRedirect(reverse('auth:login'))
+    else:
+        user = ShopUserRegisterForm()
+    context = {
+        'page_title': 'регистрация',
+        'form': user,
+    }
+    return render(request, 'authapp/register.html', context)
+
+
+def user_profile(request):
+    if request.method == 'POST':
+        user = ShopUserProfileForm(request.POST, request.FILES, instance=request.user)
+        if user.is_valid():
+            user.save()
+            return HttpResponseRedirect(reverse('main:index'))
+    else:
+        user = ShopUserProfileForm(instance=request.user)
+    context = {
+        'page_title': 'профиль',
+        'form': user,
+    }
+    return render(request, 'authapp/profile.html', context)

@@ -6,8 +6,17 @@
                 <input type="text" class="input-header">
                 <a href="#" class="search-img"><img src="{% static 'img/search.png' %}" alt="img"></a>
             </div>
+            {% if user.is_authenticated %}
+            <a href="{% url 'auth:user_profile' %}">
+                {{ user.first_name|default:'Пользователь' }}
+            </a>
+            {% endif %}
             <div class="login-header">
-                <a href="{% url 'auth:login' %}" class="login"><h3 class="h3-login">Войти</h3></a>
+                {% if user.is_authenticated %}
+                <a class="login" href="{% url 'auth:logout' %}"><h3 class="h3-login">Выход</h3></a>
+                {% else %}
+                <a class="login" href="{% url 'auth:login' %}"><h3 class="h3-login">Вход</h3></a>
+                {% endif %}
             </div>
             <nav class="menu">
                 <ul>

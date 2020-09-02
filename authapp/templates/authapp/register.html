@@ -1,0 +1,10 @@
+{% extends 'authapp/base.html' %}
+
+{% block container  %}
+<form class="login-form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="login-input" type="submit" value="Зарегистрироваться">
+    <a class="login-reg" href="{% url 'main:index' %}">На главную</a>
+</form>
+{% endblock %}
