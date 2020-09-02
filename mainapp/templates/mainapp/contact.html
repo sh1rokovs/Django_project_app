@@ -7,7 +7,22 @@
 {% block container %}
 {% include 'mainapp/includes/include_menu.html' %}
 <div class="contact">
-    <div class="header-contact">
+    <div class="block-1">
+        {% if locations %}
+            {% for item in locations%}
+                <div class="location">
+                <h4>{{ item.sity }}</h4>
+                <h5>Telephone</h5>
+                    <p>{{ item.phone }}</p>
+                <h5>Email</h5>
+                <p>{{ item.email }}</p>
+                <h5>Address</h5>
+                <p>{{ item.address }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h4>Данные загружаются</h4>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

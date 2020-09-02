@@ -5,9 +5,8 @@ class ProductCategory(models.Model):
     name = models.CharField(verbose_name='Имя категории', max_length=128)
     description = models.TextField(verbose_name='Описание категории', blank=True)
 
-
-def __str__(self):
-    return f'{self.__class__.__name__}: {self.name}'
+    def __str__(self):
+        return f'{self.__class__.__name__}: {self.name}'
 
 
 class Product(models.Model):
@@ -22,5 +21,5 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(verbose_name='количество на складе', default=0)
 
     class Meta:
-        verbose_name = 'Продукт'
-        verbose_name_plural = 'Продукты'
+        verbose_name = 'продукт'
+        verbose_name_plural = 'продукты'

@@ -6,10 +6,17 @@
 {% endblock %}
 {% block container %}
 {% include 'mainapp/includes/include_menu.html' %}
-    <div class="products">
-    {% for category in categories %}
-        <a href="#" class="header_bottom_link"><li class="header_bottom_text">{{ category.name }}</li></a>
-    {% endfor %}
-    </div>
+<div class="links clearfix">
+    <ul class="links-menu">
+        {% for category in categories %}
+        <li>
+            <a href="#">
+                {{ category.name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="products">
 </div>
 {% endblock %}

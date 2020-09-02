@@ -7,7 +7,7 @@
                 <a href="#" class="search-img"><img src="{% static 'img/search.png' %}" alt="img"></a>
             </div>
             <div class="login-header">
-                <a href="#" class="login"><h3 class="h3-login">Войти</h3></a>
+                <a href="{% url 'auth:login' %}" class="login"><h3 class="h3-login">Войти</h3></a>
             </div>
             <nav class="menu">
                 <ul>

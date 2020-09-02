@@ -31,6 +31,25 @@ body {
     top: 15px;
     left: 85%;
 }
+.location {
+    display: inline-table;
+    background-color: #909090;
+    height: 100px;
+    width: 200px;
+    text-align: center;
+}
+.location p {
+    color: #000000;
+    font-size: 16px;
+}
+.location h5 {
+    color: white;
+    font-size: 15px;
+}
+.block-1 {
+    padding-left: 340px;
+    padding-top: 150px;
+}
 .login {
     font-size:20px;
 }

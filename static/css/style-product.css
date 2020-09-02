@@ -16,6 +16,19 @@ body {
     top: 10px;
     left: 85%;
 }
+.header__bottom_link {
+    color: grey;
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    line-height: 70px;
+    text-decoration: none;
+    padding: 0 50px 0 50px;
+    text-transform: uppercase;
+}
+.header__bottom_link:hover {
+    color: whitesmoke;
+    background: grey;
+}
 .login {
     font-size:20px;
 }
