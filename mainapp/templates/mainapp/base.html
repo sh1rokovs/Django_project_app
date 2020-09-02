@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title|title }}</title>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-product.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-contact.css' %}">
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+</head>
+<body>
+{% block container %}
+
+{% endblock %}
+<div class="footer clearfix"><h3 class="h3-foot">&#169;Защищено  {% now "jS F Y H:i" %}</h3></div>
+
+</body>
+</html>

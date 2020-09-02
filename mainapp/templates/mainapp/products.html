@@ -1,37 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Products</title>
-    <link rel="stylesheet" href="css/style-product.css">
-</head>
-<body>
+{% extends 'mainapp/base.html' %}
+
+{% block container %}
 <div class="list-product">
     <div class="header-product">
         <div class="header-product-1">
             <div class="search">
-          <input type="text" class="input-product">
-          <a href="#" class="search-img"><img src="img/search.png" alt="img"></a>
-          </div>
-            <nav class="menu">
-               <ul>
-                    <li><a href="#"><h3 class="h3-menu">Меню</h3></a>
-                        <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="products.html">Продукты</a></li>
-                    <li><a href="contact.html">Контакты</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-         </div>
-   </div>
-    <div class="products">
-        product
+                <input type="text" class="input-product">
+                <a href="#" class="search-img"><img src="img/search.png" alt="img"></a>
+            </div>
+            {% include 'mainapp/includes/include_menu.html' %}
+        </div>
     </div>
-    <div class="footer clearfix">
-    <h3 class="h3-foot">&copy; Защищено</h3>
+    <div class="products">
+    {% for category in categories %}
+        <a href="#" class="header_bottom_link"><li class="header_bottom_text">{{ category.name }}</li></a>
+    {% endfor %}
     </div>
 </div>
-</body>
-</html>

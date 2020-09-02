@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Contact</title>
-    <link rel="stylesheet" href="css/style-contact.css">
-</head>
-<body>
-    <div class="contact">
-        <div class="header-contact">
-            <nav class="menu">
-       <ul>
-        <li><a href="#"><h3 class="h3-menu">Меню</h3></a>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="products.html">Продукты</a></li>
-                <li><a href="contact.html">Контакты</a></li>
-            </ul>
-        </li>
-        </ul>
-    </nav>
-        </div>
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block container %}
+<div class="contact">
+    <div class="header-contact">
     </div>
-    <div class="footer clearfix">
-    <h3 class="h3-foot">&copy; Защищено</h3>
-    </div>
-</body>
-</html>
+</div>
+{% endblock %}
