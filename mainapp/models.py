@@ -18,7 +18,8 @@ class Product(models.Model):
     image = models.ImageField(upload_to='Products_image', blank=True)
     short_desc = models.CharField(verbose_name='Краткое описание продукта', max_length=64, blank=True)
     description = models.TextField(verbose_name='Описание продукта', blank=True)
-    price = models.DecimalField(verbose_name='Цена продукта', max_digits=8, decimal_place=2, default=0)
+    price = models.DecimalField(verbose_name='цена продукта', max_digits=8, decimal_places=2, default=0)
+    quantity = models.PositiveIntegerField(verbose_name='количество на складе', default=0)
 
     class Meta:
         verbose_name = 'Продукт'

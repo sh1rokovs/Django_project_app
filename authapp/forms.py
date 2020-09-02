@@ -2,7 +2,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from authapp.models import ShopUser
 
 
-class MyAuthenticationsForm(AuthenticationForm):
+class MyAuthenticationForm(AuthenticationForm):
     class Meta:
         model = ShopUser
         fields = ('username', 'password')

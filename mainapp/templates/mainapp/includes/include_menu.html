@@ -1,8 +1,9 @@
 <nav class="menu"><ul>
     <li><a href="#"><h3 class="h3-menu">Меню</h3></a>
         <ul>
-            <li><a href="index.html">Главная</a></li><li><a href="products.html">Продукты</a></li>
-            <li><a href="contact.html">Контакты</a></li>
+            <li><a href="{% url 'main:index' %}">Главная</a></li>
+            <li><a href="{% url 'main:products' %}">Продукты</a></li>
+            <li><a href="{% url 'main:contact' %}">Контакты</a></li>
         </ul>
     </li>
 </ul>

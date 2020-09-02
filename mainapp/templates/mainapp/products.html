@@ -1,5 +1,9 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-products.css' %}">
+{% endblock %}
 {% block container %}
 <div class="list-product">
     <div class="header-product">
@@ -17,3 +21,4 @@
     {% endfor %}
     </div>
 </div>
+{% endblock %}
