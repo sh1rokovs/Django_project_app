@@ -1,11 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
-from mainapp.models import ProductCategory
+from mainapp.models import ProductCategory, Product
+
+
+def get_menu():
+    return ProductCategory.objects.all()
 
 
 def index(request):
     context = {
-        'page_title': 'Главная',
+        'page_title': 'главная',
     }
     return render(request, 'mainapp/index.html', context)
 
@@ -39,10 +43,24 @@ def contact(request):
 
 
 def products(request):
-    categories = ProductCategory.objects.all()
-
     context = {
         'page_title': 'продукты',
-        'categories': categories,
+        'categories': get_menu(),
     }
     return render(request, 'mainapp/products.html', context)
+
+
+def catalog(request, pk):
+    if int(pk) == 0:
+        category = {'pk': 0, 'name': 'Все'}
+        products = Product.objects.all()
+    else:
+        category = get_object_or_404(ProductCategory, pk=pk)
+        products = Product.objects.filter(category=category)
+    context = {
+        'page_title': 'каталог',
+        'categories': get_menu(),
+        'category': category,
+        'products': products,
+    }
+    return render(request, 'mainapp/catalog.html', context)

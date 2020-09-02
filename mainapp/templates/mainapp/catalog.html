@@ -1,0 +1,31 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-product.css' %}">
+{% endblock %}
+{% block container %}
+{% include 'mainapp/includes/include_menu.html' %}
+{% include 'mainapp/includes/catalog_menu.html' %}
+<div class="products">
+    <div class="related">
+        <div class="title clearfix">
+            <h2>Продукты в категории {{ category.name|capfirst}}</h2>
+        </div>
+        <div class="related-products clearfix">
+            {% for product in products %}
+                <div class="block">
+                    <a href="{% url 'basket:add_product' product.pk %}">
+                        <img src="/media/{{ product.image }}" alt="img">
+                        <div class="text">
+                            <img src="/static/img/icon-hover.png" alt="img">
+                            <h4>{{ product.name }}</h4>
+                            <p>{{ product.short_desc }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

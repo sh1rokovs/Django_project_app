@@ -8,6 +8,9 @@ class ProductCategory(models.Model):
     def __str__(self):
         return f'{self.__class__.__name__}: {self.name}'
 
+    class Meta:
+        ordering = ['name']
+
 
 class Product(models.Model):
     category = models.ForeignKey(ProductCategory,
@@ -19,6 +22,9 @@ class Product(models.Model):
     description = models.TextField(verbose_name='Описание продукта', blank=True)
     price = models.DecimalField(verbose_name='цена продукта', max_digits=8, decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(verbose_name='количество на складе', default=0)
+
+    def __str__(self):
+        return f'{self.name} ({self.category.name})'
 
     class Meta:
         verbose_name = 'продукт'
