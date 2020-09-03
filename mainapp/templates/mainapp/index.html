@@ -3,8 +3,8 @@
 {% block container %}
 <div class="list">
     {% include 'mainapp/includes/include_menu.html' %}
-    <div class="block-1 clearfix"><h1 class="h1-block-1"><a href="#" class="a-bl1">Мотоциклы</a></h1></div>
-    <div class="block-2 clearfix"><h1 class="h1-block-2"><a href="#" class="a-bl2">Автомобили</a></h1></div>
-    <div class="block-3 clearfix"><h1 class="h1-block-3"><a href="#" class="a-bl3">Яхты</a></h1></div>
+    <div class="block-1 clearfix"><h1 class="h1-block-1"><a href="{% url 'main:catalog' 1 %}" class="a-bl1">Мотоциклы</a></h1></div>
+    <div class="block-2 clearfix"><h1 class="h1-block-2"><a href="{% url 'main:catalog' 2 %}" class="a-bl2">Автомобили</a></h1></div>
+    <div class="block-3 clearfix"><h1 class="h1-block-3"><a href="{% url 'main:catalog' 3 %}" class="a-bl3">Яхты</a></h1></div>
 </div>
 {% endblock %}

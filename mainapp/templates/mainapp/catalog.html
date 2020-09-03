@@ -6,8 +6,10 @@
 {% endblock %}
 {% block container %}
 {% include 'mainapp/includes/include_menu.html' %}
-{% include 'mainapp/includes/catalog_menu.html' %}
 <div class="products">
+    <div class="catalog-menu">
+        {% include 'mainapp/includes/catalog_menu.html' %}
+    </div>
     <div class="related">
         <div class="title clearfix">
             <h2>Продукты в категории {{ category.name|capfirst}}</h2>
@@ -18,7 +20,6 @@
                     <a href="{% url 'basket:add_product' product.pk %}">
                         <img src="/media/{{ product.image }}" alt="img">
                         <div class="text">
-                            <img src="/static/img/icon-hover.png" alt="img">
                             <h4>{{ product.name }}</h4>
                             <p>{{ product.short_desc }}</p>
                         </div>

@@ -1,6 +1,16 @@
 {% extends 'authapp/base.html' %}
+{% load static %}
 
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/reg.css' %}">
+{% endblock %}
 {% block container  %}
+<div class="login">
+            <div class="h2 text-center head">
+                Регистрация
+            </div>
+</div>
 <form class="login-form" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}

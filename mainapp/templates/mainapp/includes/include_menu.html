@@ -7,7 +7,12 @@
                 <a href="#" class="search-img"><img src="{% static 'img/search.png' %}" alt="img"></a>
             </div>
             {% if user.is_authenticated %}
-            <a href="{% url 'auth:user_profile' %}">
+            <div class="basket-div">
+                <a href="{% url 'basket:index' %}" class="basket">Корзина</a>
+            </div>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <a href="{% url 'auth:user_profile' %}" class="profile-usr">
                 {{ user.first_name|default:'Пользователь' }}
             </a>
             {% endif %}

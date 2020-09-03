@@ -1,6 +1,15 @@
 {% extends 'authapp/base.html' %}
+{% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 {% block container  %}
+<div class="login">
+            <div class="h2 text-center head">
+                Вход
+            </div>
+        </div>
 <form class="login-form" method="post">
     {% csrf_token %}
     {{ form.as_p }}

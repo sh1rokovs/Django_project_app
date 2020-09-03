@@ -51,8 +51,8 @@ def products(request):
 
 
 def catalog(request, pk):
-    if int(pk) == 0:
-        category = {'pk': 0, 'name': 'Все'}
+    if pk == 0:
+        category = {'pk': 0, 'name': 'Все товары'}
         products = Product.objects.all()
     else:
         category = get_object_or_404(ProductCategory, pk=pk)

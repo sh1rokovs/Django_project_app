@@ -6,7 +6,9 @@
 {% endblock %}
 {% block container %}
 {% include 'mainapp/includes/include_menu.html' %}
-{% include 'mainapp/includes/catalog_menu.html' %}
 <div class="products">
+    <div class="catalog-menu">
+        {% include 'mainapp/includes/catalog_menu.html' %}
+    </div>
 </div>
 {% endblock %}

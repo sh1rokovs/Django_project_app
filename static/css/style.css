@@ -96,6 +96,20 @@ a {
     height: 40px;
     width: 180px;
 }
+.basket {
+    position: absolute;
+    left: 240px;
+    top: 15px;
+    color: #a1abb5;
+    font-size: 20px;
+}
+.profile-usr {
+    position: absolute;
+    left: 330px;
+    top: 15px;
+    color: #a1abb5;
+    font-size: 20px
+}
 .a-bl2 {
     color: #a1abb5;
 }
@@ -120,7 +134,7 @@ a {
 .menu {
     position: absolute;
     right: 5%;
-    top: 0px;
+    top: 15px;
 }
 .clearfix {
     clear: both;
@@ -140,7 +154,7 @@ nav a {
     padding:0 10px;
     color:#a1abb5;
     font-size:20px;
-    line-height: 60px;
+    line-height: 30px;
     text-decoration:none;
 }
 nav a:hover {

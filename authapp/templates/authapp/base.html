@@ -3,20 +3,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ page_title|default:"Главная"|title}}</title>
+    <title>{{ page_title|title }}</title>
     {% block css %}
-        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
     {% endblock %}
     {% block js %}
     {% endblock %}
 </head>
 <body>
     <div class="container">
-        <div class="login">
-            <div class="h2 text-center head">
-                Вход в систему
-            </div>
-        </div>
         {% block container %}
         {% endblock %}
     </div>

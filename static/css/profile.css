@@ -7,19 +7,12 @@ body {
     text-align: center;
     padding-top: 10%;
 }
-.login {
+.login-reg {
     color: #a1abb5;
 }
 .login-form p {
     color: #a1abb5;
 }
-.login-input {
-    position: absolute;
-    left: 48.5%;
-}
-.login-reg {
-    position: absolute;
-    top: 70%;
-    right: 45%;
+.login {
     color: #a1abb5;
 }

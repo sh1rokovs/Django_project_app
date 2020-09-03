@@ -13,8 +13,22 @@ body {
 }
 .login-header {
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 85%;
+}
+.basket {
+    position: absolute;
+    left: 240px;
+    top: 15px;
+    color: #a1abb5;
+    font-size: 20px;
+}
+.profile-usr {
+    position: absolute;
+    left: 330px;
+    top: 15px;
+    color: #a1abb5;
+    font-size: 20px
 }
 .header__bottom_link {
     color: grey;
@@ -42,10 +56,20 @@ body {
     padding-left: 10px;
     padding-top: 4px;
 }
+.block {
+    width: 270px;
+    display: inline-flex;
+}
+.related {
+    text-align: center;
+}
+.title {
+    color:#a1abb5;
+}
 .menu {
     position: absolute;
     right: 5%;
-    top: 10px;
+    top: 15px;
 }
 .products {
     background-color: #393939;
@@ -113,4 +137,28 @@ nav ul ul li {
     float:none;
     display:list-item;
     position: relative;
+}
+.links-menu {
+    padding:0;
+    margin:0;
+    list-style: none;
+    position: relative;
+}
+.links-menu li {
+    margin: 0px -7px 0 0;
+    display:inline-block;
+}
+.links-menu a {
+    display:block;
+    padding:0 10px;
+    color:#a1abb5;
+    font-size:20px;
+    line-height: 30px;
+    text-decoration:none;
+}
+.links-menu a:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+.catalog-menu {
+    text-align: center;
 }
