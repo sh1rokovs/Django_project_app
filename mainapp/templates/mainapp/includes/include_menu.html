@@ -9,6 +9,7 @@
             {% if user.is_authenticated %}
             <div class="basket-div">
                 <a href="{% url 'basket:index' %}" class="basket">Корзина</a>
+                <span class="basket-span">{{ user.basket_cost|floatformat:0 }} руб ({{ user.total_quantity }} шт)</span>
             </div>
             {% endif %}
             {% if user.is_authenticated %}
@@ -27,9 +28,9 @@
                 <ul>
                     <li><a href="#"><h3 class="h3-menu">Меню</h3></a>
                         <ul>
-                            <li><a href="{% url 'main:index' %}">Главная</a></li>
-                            <li><a href="{% url 'main:products' %}">Продукты</a></li>
-                            <li><a href="{% url 'main:contact' %}">Контакты</a></li>
+                            <li><a href="{% url 'main:index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Главная</a></li>
+                            <li><a href="{% url 'main:products' %}" class="{% if request.resolver_match.url_name == 'products' or request.resolver_match.url_name == 'catalog' %}active{% endif %}">Продукты</a></li>
+                            <li><a href="{% url 'main:contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Контакты</a></li>
                         </ul>
                     </li>
                 </ul>

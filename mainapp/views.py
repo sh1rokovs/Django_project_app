@@ -1,3 +1,5 @@
+import random
+
 from django.shortcuts import render, get_object_or_404
 
 from mainapp.models import ProductCategory, Product
@@ -43,11 +45,24 @@ def contact(request):
 
 
 def products(request):
+    get_hot_product = hot_product()
+    # _related_products = related_products(get_hot_product)  // оптимизация
     context = {
         'page_title': 'продукты',
         'categories': get_menu(),
+        'get_hot_product': get_hot_product,
+        # 'related_products': _related_products,
     }
     return render(request, 'mainapp/products.html', context)
+
+
+def product_list(request, pk):
+    context = {
+        'page_title': 'продукт',
+        'categories': get_menu(),
+        'product': get_object_or_404(Product, pk=pk)
+    }
+    return render(request, 'mainapp/product_list.html', context)
 
 
 def catalog(request, pk):
@@ -64,3 +79,11 @@ def catalog(request, pk):
         'products': products,
     }
     return render(request, 'mainapp/catalog.html', context)
+
+
+def hot_product():
+    product = Product.objects.all()
+    return random.choice(product)
+    # products_id = Product.objects.values_list('id', flat=True)    //
+    # hot_product_id = random.choice(products_id)                  //оптимизированный вариант
+    # return Product.objects.get(pk=hot_product_id)                //

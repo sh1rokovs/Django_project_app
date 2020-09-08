@@ -103,6 +103,20 @@ a {
     color: #a1abb5;
     font-size: 20px;
 }
+.active {
+    text-decoration: underline;
+}
+.basket-span {
+    color: #a1abb5;
+    padding-left: 220px;
+}
+.description {
+    color: #a1abb5;
+    text-align: center;
+}
+.red-button {
+    color: red;
+}
 .profile-usr {
     position: absolute;
     left: 330px;

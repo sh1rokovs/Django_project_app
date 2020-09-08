@@ -24,6 +24,10 @@ body {
     color: #a1abb5;
     font-size: 20px;
 }
+.basket-span {
+    color: #a1abb5;
+    padding-left: 220px;
+}
 .profile-usr {
     position: absolute;
     left: 330px;
@@ -39,6 +43,9 @@ body {
     color:#a1abb5;
     font-size: 23px;
     margin: 0;
+}
+.active {
+    text-decoration: underline;
 }
 .login-header {
     position: absolute;

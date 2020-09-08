@@ -1,0 +1,9 @@
+<div class="block">
+                    <a href="{% url 'main:product_list' product.pk %}">
+                        <img src="/media/{{ product.image }}" alt="img">
+                        <div class="text">
+                            <h4>{{ product.name }}</h4>
+                            <p>{{ product.short_desc }}</p>
+                        </div>
+                    </a>
+</div>

@@ -46,6 +46,9 @@ body {
 .login {
     font-size:20px;
 }
+.active {
+    text-decoration: underline;
+}
 .h3-login {
     color:#a1abb5;
     font-size: 23px;
@@ -55,6 +58,10 @@ body {
     position: absolute;
     padding-left: 10px;
     padding-top: 4px;
+}
+.basket-span {
+    color: #a1abb5;
+    padding-left: 220px;
 }
 .block {
     width: 270px;
