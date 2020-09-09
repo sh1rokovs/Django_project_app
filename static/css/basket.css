@@ -9,3 +9,11 @@ body {
     height: 80%;
     background-color: darkgrey;
 }
+.basket_list {
+    text-align: center;
+    color: #a1abb5;
+}
+.h2 {
+    text-align: center;
+    color: #a1abb5;
+}

@@ -12,6 +12,9 @@
         </div>
 <form class="login-form" method="post">
     {% csrf_token %}
+    {% if redirect_url %}
+        <input type="hidden" name="redirect_url" value="{{ redirect_url }}">
+    {% endif %}
     {{ form.as_p }}
     <input class="login-input" type="submit" value="Войти">
     <a class="login-reg" href="{% url 'auth:user_register' %}">Зарегистрироваться</a>
