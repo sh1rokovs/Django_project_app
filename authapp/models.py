@@ -11,3 +11,6 @@ class ShopUser(AbstractUser):
 
     def total_quantity(self):
         return sum(item.quantity for item in self.user_basket.all())
+
+    class Meta:
+        ordering = ['-is_active', '-is_superuser', '-is_staff', 'username']

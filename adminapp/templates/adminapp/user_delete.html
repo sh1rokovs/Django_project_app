@@ -1,0 +1,18 @@
+{% extends 'adminapp/base.html' %}
+
+
+{% block container %}
+  <div class="user_delete">
+    <h4 class="confirm">Уверены, что хотите удалить {{ user_delete.username }} ?</h4>
+    <form action="{% url 'myadmin:user_delete' user_delete.pk %}"
+          method="post">
+      {% csrf_token %}
+      <input class="btn btn-danger" type="submit" value="удалить">
+    </form>
+    <button class="btn btn-success">
+      <a href="{% url 'myadmin:index' %}">
+        Отмена
+      </a>
+    </button>
+  </div>
+{% endblock %}

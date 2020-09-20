@@ -103,6 +103,13 @@ a {
     color: #a1abb5;
     font-size: 20px;
 }
+.admin-usr {
+    position: absolute;
+    top: 15px;
+    color: #a1abb5;
+    left: 470px;
+    font-size: 20px;
+}
 .active {
     text-decoration: underline;
 }
