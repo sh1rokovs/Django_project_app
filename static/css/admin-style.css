@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    background-image: url(../img/back-img.jpg);
+}
+.menu li a {
+    text-decoration: none;
+    color: #a1abb5;
+}
+.menu li a:hover {
+    color: white;
+}
+.h2 {
+    color: #a1abb5;
+    text-align: center;
+}
+.menu {
+    list-style: none;
+    display: block ruby;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.menu li {
+    border: 2px double white;
+}
+.menu li:hover {
+     background-color: black;
+}
+.new_user {
+    color: #a1abb5;
+    padding-left: 700px;
+}
+.user_record {
+    color: #a1abb5;
+    padding-left: 50px;
+    padding-top: 30px;
+    width: 300px;
+    border: 1px double;
+}
+.login {
+    text-align: center;
+    color: #a1abb5;
+}
+.last {
+    color: #a1abb5;
+}
