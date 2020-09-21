@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from authapp.forms import forms, ShopUserProfileForm
 from authapp.models import ShopUser
-from mainapp.models import ProductCategory
+from mainapp.models import ProductCategory, Product
 
 
 class FormControlMixin:
@@ -49,3 +49,8 @@ class AdminProductCategoryCreateForm(FormControlMixin, forms.ModelForm):
         model = ProductCategory
         fields = '__all__'
 
+
+class AdminProductUpdateForm(FormControlMixin, forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'

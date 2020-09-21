@@ -12,7 +12,7 @@
                     {{ object.name|title }}
                 </div>
                 <div class="category_actions">
-                    <a href="{#% url 'myadmin:category_products' object.pk %#}" class="btn btn-info">
+                    <a href="{% url 'myadmin:category_products' object.pk %}" class="btn btn-info">
                         Товары категории
                     </a>
                     <a href="{% url 'myadmin:categories_update' object.pk %}" class="btn btn-success">
