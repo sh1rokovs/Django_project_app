@@ -50,7 +50,6 @@ def products(request):
     # _related_products = related_products(get_hot_product)  // оптимизация
     context = {
         'page_title': 'продукты',
-        'categories': get_menu(),
         'get_hot_product': get_hot_product,
         # 'related_products': _related_products,
     }
@@ -60,7 +59,6 @@ def products(request):
 def product_list(request, pk):
     context = {
         'page_title': 'продукт',
-        'categories': get_menu(),
         'product': get_object_or_404(Product, pk=pk)
     }
     return render(request, 'mainapp/product_list.html', context)
@@ -84,7 +82,6 @@ def catalog(request, pk, page=1):
 
     context = {
         'page_title': 'каталог',
-        'categories': get_menu(),
         'category': category,
         'products': products,
     }
