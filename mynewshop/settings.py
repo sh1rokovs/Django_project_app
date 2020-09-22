@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from datetime import timedelta
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -137,3 +139,16 @@ AUTH_USER_MODEL = 'authapp.ShopUser'
 JSON_PATH = 'json'
 
 LOGIN_URL = '/auth/login/'
+
+DOMAIN_NAME = 'http://localhost:8000'
+
+USER_EXPIRES_TIMEDELTA = timedelta(hours=48)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'django@geekshop.local'
+EMAIL_HOST_PASSWORD = 'geekshop'
+EMAIL_USE_SSL = False
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = 'tmp/email-messages/'
