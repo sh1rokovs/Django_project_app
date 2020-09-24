@@ -10,6 +10,18 @@ body {
 .login {
     color: #a1abb5;
 }
+.btn.btn-round.form-control.vk {
+    position: absolute;
+    top: 75%;
+    left: 35%;
+    color: #a1abb5;
+}
+.btn.btn-round.form-control.google {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    color: #a1abb5;
+}
 .login-form p {
     color: #a1abb5;
 }

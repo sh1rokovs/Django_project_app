@@ -82,6 +82,8 @@ a {
 }
 .login {
     font-size:20px;
+    position: absolute;
+    right: 10%;
 }
 .h3-login {
     color:#a1abb5;
@@ -159,7 +161,7 @@ a {
 }
 .clearfix {
     clear: both;
-}	
+}
 nav ul {
     padding:0;
     margin:0;
@@ -186,11 +188,11 @@ nav ul ul {
     position: absolute;
     top: 100%;
 }
-	
+
 nav ul li:hover > ul {
     display:inherit;
 }
-	
+
 nav ul ul li {
     min-width:170px;
     float:none;

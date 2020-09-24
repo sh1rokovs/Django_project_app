@@ -18,5 +18,7 @@
     {{ form.as_p }}
     <input class="login-input" type="submit" value="Войти">
     <a class="login-reg" href="{% url 'auth:user_register' %}">Зарегистрироваться</a>
+     <a class="btn btn-round form-control vk" href="{% url 'social:begin' 'vk-oauth2' %}?next=/">Войти через Вконтакте</a>
+    <a class="btn btn-round form-control google" href="{% url 'social:begin' 'google-oauth2' %}?next=/">Войти через Google+</a>
 </form>
 {% endblock %}

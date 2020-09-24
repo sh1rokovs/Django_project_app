@@ -31,16 +31,53 @@ body {
     color: #a1abb5;
     padding-left: 700px;
 }
+.category_record {
+    text-align: center;
+    color: #d75c37;
+}
+.product_list {
+    text-align: center;
+}
+.new_product.btn.btn-default {
+    margin-bottom: 10px;
+}
 .user_record {
     color: #a1abb5;
     padding-left: 50px;
     padding-top: 30px;
     width: 300px;
     border: 1px double;
+    text-align: center;
+}
+.category_actions {
+}
+.btn {
+    color: aliceblue;
+}
+.not_active {
+    background-color: rgba(255,255,255, 0.3);
 }
 .login {
     text-align: center;
     color: #a1abb5;
+}
+.product_record {
+    color: coral;
+}
+.form-horizontal {
+    text-align: center;
+    color: coral;
+}
+.user_delete {
+    text-align: center;
+    color: coral;
+}
+.btn.btn-danger {
+    color: red;
+}
+a.btn.btn-primary.new_category {
+    padding-left: 2%;
+    color: aliceblue;
 }
 .last {
     color: #a1abb5;

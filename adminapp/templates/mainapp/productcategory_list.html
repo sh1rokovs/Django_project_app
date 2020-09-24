@@ -11,6 +11,9 @@
                 <div class="category_name">
                     {{ object.name|title }}
                 </div>
+                <div class="category_desc">
+                    Описание:({{ object.description }})
+                </div>
                 <div class="category_actions">
                     <a href="{% url 'myadmin:category_products' object.pk %}" class="btn btn-info">
                         Товары категории
@@ -21,9 +24,6 @@
                     <a href="{% url 'myadmin:categories_delete' object.pk %}" class="btn btn-danger">
                         удалить
                     </a>
-                </div>
-                <div class="category_desc">
-                    {{ object.description }}
                 </div>
             </div>
         {% endfor %}
