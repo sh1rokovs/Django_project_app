@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from authapp.forms import forms, ShopUserProfileForm
+from authapp.forms import forms, ShopUserUpdateForm
 from authapp.models import ShopUser
 from mainapp.models import ProductCategory, Product
 
