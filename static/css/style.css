@@ -100,24 +100,88 @@ a {
 }
 .basket {
     position: absolute;
-    left: 240px;
+    left: 20%;
     top: 15px;
     color: #a1abb5;
     font-size: 20px;
+}
+.h2 {
+    text-align: center;
+    color: #a1abb5;
+}
+.h3 {
+    text-align: center;
+    color: #a1abb5;
+}
+.h4 {
+    text-align: center;
+    color: #a1abb5;
+}
+.order {
+    color: #a1abb5;
+}
+.basket_record>.category_name {
+    color: #a1abb5;
+}
+.basket_record>.product_name {
+    color: #a1abb5;
+}
+.basket_record>.product_price {
+    color: #a1abb5;
+}
+.basket_record>.product_quantity {
+    color: #a1abb5;
+}
+.basket_record>.product_cost {
+    color: #a1abb5;
+}
+.joy-se {
+    text-align: center;
+}
+.btn.btn-round {
+    text-decoration-line: underline;
+    color: #6c953c;
+}
+tr>td>a {
+    text-decoration-line: underline;
+    color: #6c953c;
+}
+.h1 {
+    text-align: center;
+    color: #d95623;
+}
+.btn.btn-success{
+    color: #6c953c;
+}
+.basket_list{
+    text-align: center;
+}
+.btn.last {
+    text-align: center;
+    color: #a1abb5;
+}
+.table tr td {
+    color: #a1abb5;
+}
+.table tr th{
+    color: #a1abb5;
 }
 .admin-usr {
     position: absolute;
     top: 15px;
     color: #a1abb5;
-    left: 470px;
+    left: 35%;
     font-size: 20px;
 }
 .active {
     text-decoration: underline;
 }
 .basket-span {
+    position: absolute;
+    left: 27%;
+    top: 19px;
+    z-index: 1;
     color: #a1abb5;
-    padding-left: 220px;
 }
 .description {
     color: #a1abb5;
@@ -156,7 +220,13 @@ a {
 }
 .menu {
     position: absolute;
-    right: 5%;
+    right: 2%;
+    top: 15px;
+}
+.menu-1 {
+    position: absolute;
+    right: 30%;
+    z-index: 1;
     top: 15px;
 }
 .clearfix {

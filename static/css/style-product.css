@@ -53,6 +53,20 @@ body {
     color:#a1abb5;
     font-size: 23px;
     margin: 0;
+    position: absolute;
+    right: 0;
+}
+.menu-1 {
+    width: 75px;
+    position: absolute;
+    top: 15px;
+    left: 70%;
+}
+.admin-usr {
+    color:#a1abb5;
+    position: absolute;
+    top: 20px;
+    left: 25%;
 }
 .search-img {
     position: absolute;

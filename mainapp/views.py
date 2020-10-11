@@ -1,6 +1,7 @@
 import random
 
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 
 from mainapp.models import ProductCategory, Product
@@ -67,10 +68,10 @@ def product_list(request, pk):
 def catalog(request, pk, page=1):
     if pk == 0:
         category = {'pk': 0, 'name': 'Все товары'}
-        products = Product.objects.all()
+        products = Product.objects.filter(is_active=True)
     else:
         category = get_object_or_404(ProductCategory, pk=pk)
-        products = Product.objects.filter(category=category)
+        products = Product.objects.filter(category=category, is_active=True)
 
     products_paginator = Paginator(products, 2)
     try:
@@ -89,8 +90,18 @@ def catalog(request, pk, page=1):
 
 
 def hot_product():
-    product = Product.objects.all()
-    return random.choice(product)
-    # products_id = Product.objects.values_list('id', flat=True)    //
-    # hot_product_id = random.choice(products_id)                  //оптимизированный вариант
-    # return Product.objects.get(pk=hot_product_id)                //
+    # product = (Product.objects.all()).exclude(is_active=False)
+    # return random.choice(product)
+    products_id = Product.objects.filter(is_active=True).values_list('id', flat=True)
+    hot_product_id = random.choice(products_id)
+    return Product.objects.get(pk=hot_product_id)
+
+
+def related_products(product):
+    return Product.objects.filter(category=product.category, is_active=True).exclude(id=product.id)
+
+
+def product_price(request, pk):
+    if request.is_ajax():
+        product = Product.objects.filter(pk=int(pk)).first()
+        return JsonResponse({'price': product and product.price or 0})

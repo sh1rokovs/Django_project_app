@@ -15,8 +15,8 @@
                 </div>
                 <div class="product_actions">
                         <a href="{% url 'myadmin:product_read' pk=object.pk %}" class="btn btn-success">поподробнее</a>
-                        <a href="{#% url 'myadmin:product_update' object.pk %#}" class="btn btn-success">редактировать</a>
-                        <a href="{#% url 'myadmin:product_delete' object.pk %#}" class="btn btn-success">удалить</a>
+                        <a href="{% url 'myadmin:product_update' pk=object.pk %}" class="btn btn-success">редактировать</a>
+                        <a href="{% url 'myadmin:product_delete' pk=object.pk %}" class="btn btn-success">удалить</a>
                 </div>
                 <div class="summary">
                     <b>цена</b>

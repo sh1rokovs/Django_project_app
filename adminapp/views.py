@@ -169,23 +169,45 @@ def product_create(request, pk):
     return render(request, 'adminapp/product_update.html', context)
 
 
-# @user_passes_test(lambda u: u.is_superuser)
-# def product_delete(request, pk):
-#    obj = get_object_or_404(Product, pk=pk)
+@user_passes_test(lambda u: u.is_superuser)
+def product_update(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        form = AdminProductUpdateForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse(
+                'myadmin:category_products',
+                kwargs={'pk': product.category.pk}
+            ))
+    else:
+        form = AdminProductUpdateForm(instance=product)
 
-#    if request.method == 'POST':
-#       obj.is_active = False
-#       obj.save()
-#      return HttpResponseRedirect(reverse(
-#          'myadmin:categories_product',
-#          kwargs={'pk': obj.category.pk}
-#       ))
+    context = {
+        'page_title': 'продукты/редактирование',
+        'form': form,
+        'category': product.category,
+    }
+    return render(request, 'adminapp/product_update.html', context)
 
-#    context = {
-#        'title': 'продукты/удаление',
-#       'object': obj,
-#    }
-#    return render(request, 'adminapp/product_delete.html', context)
+
+@user_passes_test(lambda u: u.is_superuser)
+def product_delete(request, pk):
+    obj = get_object_or_404(Product, pk=pk)
+
+    if request.method == 'POST':
+        obj.is_active = False
+        obj.save()
+        return HttpResponseRedirect(reverse(
+            'myadmin:category_products',
+            kwargs={'pk': obj.category.pk}
+        ))
+
+    context = {
+        'title': 'продукты/удаление',
+        'object': obj,
+    }
+    return render(request, 'adminapp/product_delete.html', context)
 
 
 class ProductDetail(OnlySuperUserMixin, PageTitleMixin, DetailView):
