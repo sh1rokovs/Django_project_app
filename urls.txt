@@ -1,0 +1,6 @@
+http://192.168.1.84/
+http://192.168.1.84/products/
+http://192.168.1.84/contact/
+http://192.168.1.84/category/1/products/
+http://192.168.1.84/category/2/products/
+http://192.168.1.84/category/3/products/

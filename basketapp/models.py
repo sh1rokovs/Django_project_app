@@ -32,3 +32,12 @@ class BasketItem(models.Model):
     @classmethod
     def get_item(cls, pk):
         return cls.objects.filter(pk=pk).first()
+
+#    def delete(self, using=None, keep_parents=False):
+#        self.product.quantity += self.quantity
+#        self.product.save()
+#        super().delete(using=None, keep_parents=False)
+
+    @classmethod
+    def get_item(cls, pk):
+        return cls.objects.filter(pk=pk).first()

@@ -1,10 +1,13 @@
 import random
 
+from django.core.cache import cache
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.cache import cache_page
 
 from mainapp.models import ProductCategory, Product
+from mynewshop import settings
 
 
 def get_menu():
@@ -65,10 +68,31 @@ def product_list(request, pk):
     return render(request, 'mainapp/product_list.html', context)
 
 
+def get_products():
+    if settings.LOW_CACHE:
+        key = 'products'
+        products = cache.get(key)
+        print(products)
+        if products is None:
+            products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category')
+            cache.set(key, products)
+        return products
+    else:
+        return Product.objects.filter(is_active=True, category__is_active=True).select_related('category')
+
+
+def hot_product():
+    # product = (Product.objects.all()).exclude(is_active=False)
+    # return random.choice(product)
+    # products_id = Product.objects.filter(is_active=True).values_list('id', flat=True)
+    # hot_product_id = random.choice(products_id)
+    return random.choice(get_products())
+
+
 def catalog(request, pk, page=1):
     if pk == 0:
         category = {'pk': 0, 'name': 'Все товары'}
-        products = Product.objects.filter(is_active=True)
+        products = get_products()
     else:
         category = get_object_or_404(ProductCategory, pk=pk)
         products = Product.objects.filter(category=category, is_active=True)
@@ -87,14 +111,6 @@ def catalog(request, pk, page=1):
         'products': products,
     }
     return render(request, 'mainapp/catalog.html', context)
-
-
-def hot_product():
-    # product = (Product.objects.all()).exclude(is_active=False)
-    # return random.choice(product)
-    products_id = Product.objects.filter(is_active=True).values_list('id', flat=True)
-    hot_product_id = random.choice(products_id)
-    return Product.objects.get(pk=hot_product_id)
 
 
 def related_products(product):

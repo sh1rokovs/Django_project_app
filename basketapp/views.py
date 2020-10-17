@@ -1,4 +1,6 @@
 from django.contrib.auth.decorators import login_required
+from django.db import connection
+from django.db.models import F
 from django.db.models.signals import pre_save, pre_delete
 from django.dispatch import receiver
 from django.http import HttpResponseRedirect, JsonResponse
@@ -7,13 +9,13 @@ from django.template import loader
 from django.urls import reverse
 
 from basketapp.models import BasketItem
-from mainapp.models import Product
+from mainapp.models import Product, ProductCategory
 from neworderapp.models import OrderItem
 
 
 @login_required
 def index(request):
-    basket_items = request.user.user_basket.all()
+    basket_items = request.user.user_basket.select_related('product', 'product__category').all()
     context = {
         'title': 'корзина',
         'basket_items': basket_items,
@@ -34,10 +36,12 @@ def add_product(request, pk):
     basket = BasketItem.objects.filter(user=request.user, product=product).first()
 
     if not basket:
-        basket = BasketItem(user=request.user, product=product)
+        basket = BasketItem.objects.create(user=request.user, product=product)
 
-    basket.quantity += 1
+    # basket.quantity += 1
+    basket.quantity = F('quantity') + 1
     basket.save()
+    db_profile_by_type(basket, 'UPDATE', connection.queries)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
@@ -65,7 +69,7 @@ def change(request, pk, quantity):
         )
 
         return JsonResponse({
-            'basket_items' : basket_items
+            'basket_items': basket_items
         })
 
 
@@ -84,3 +88,26 @@ def product_quantity_update_save(sender, update_fields, instance, **kwargs):
 def product_quantity_update_delete(sender, instance, **kwargs):
     instance.product.quantity += instance.quantity
     instance.product.save()
+
+
+@receiver(pre_save, sender=OrderItem)
+@receiver(pre_save, sender=BasketItem)
+def product_quantity_update_save(sender, update_fields, instance, **kwargs):
+    if instance.pk:
+        instance.product.quantity -= instance.quantity - sender.get_item(instance.pk).quantity
+    else:
+        instance.product.quantity -= instance.quantity
+    instance.product.save()
+
+
+@receiver(pre_delete, sender=OrderItem)
+@receiver(pre_delete, sender=BasketItem)
+def product_quantity_update_delete(sender, instance, **kwargs):
+    instance.product.quantity += instance.quantity
+    instance.product.save()
+
+
+def db_profile_by_type(instance, q_type, queries):
+    update_queries = list(filter(lambda x: q_type in x['sql'], queries))
+    print(f'db_profile {q_type} for {instance}:')
+    [print(query['sql']) for query in update_queries]
